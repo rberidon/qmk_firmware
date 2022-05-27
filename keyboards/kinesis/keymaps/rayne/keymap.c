@@ -9,11 +9,19 @@ enum kinesis_layers {
   _NUMBERS,   // Numbers & Symbols
   _FUNCTION,  // Function
   _NUMPAD,    // Numpad
-  _ADJUST     // Adjust layer (accessed via tri-layer feature)
+  _ADJUST,    // Adjust layer (accessed via tri-layer feature)
+
+  _M_BASE,    // Miryoku Base
+  _M_NAV,     // Miryoku Nav
+  _M_MEDIA,   // Miryoku Media
+  _M_NUM,     // Miryoku Numbers
+  _M_SYM,     // Miryoku Symbols
+  _M_FUN      // Miryoku Function
 };
 
 #define L_CMK DF(_COLEMAK)
 #define L_QWE DF(_QWERTY)
+#define L_MIR DF(_M_BASE)
 #define L_GAM TG(_GAMING)
 
 //Tap Dance Declarations
@@ -154,6 +162,81 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                         _______, _______,                   _______, _______,
                                                                  _______,                   _______,
                                                _______, _______, _______,                   _______, _______, _______
+),
+
+/* Using KC_NO on keys that Miryoku keyboards wouldn't have. */
+[_M_BASE] = LAYOUT_pretty(
+    KC_ESC,  L_CMK,   L_QWE,   L_MIR,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8, KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SLCK, RESET,   NUMPAD,  ADJUST,
+    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+    KC_NO,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                       KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_NO,
+    KC_NO, LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_G,                     KC_M, LSFT_T(KC_N), LCTL_T(KC_E), LALT_T(KC_I), LGUI_T(KC_O), KC_NO,
+    KC_NO,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                                                      KC_K, KC_H, KC_COMM, RALT_T(KC_DOT), KC_SLSH, KC_NO,
+             KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                                         KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                                                          KC_NO,   KC_NO,                   KC_NO,   KC_NO,
+                                                                   KC_NO,                   KC_NO,
+                        LT(_M_MEDIA, KC_ESC), LT(_M_NAV, KC_SPC), KC_TAB,                   LT(_M_SYM, KC_ENT), LT(_M_NUM, KC_BSPC), LT(_M_FUN, KC_DEL)
+),
+
+// TODO: Decide on which mod layout I like better
+// TODO: KC_AGIN, KC_UNDO, KC_CUT, KC_COPY, KC_PSTE,
+[_M_NAV] = LAYOUT_pretty(
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
+  _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
+  _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,   KC_NO,                                                       KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_CAPS, _______,
+  _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,   KC_NO,                                                       KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,
+           _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
+                                                        _______, _______,                   _______, _______,
+                                                                 _______,                   _______,
+                                                 KC_NO,   KC_NO,   KC_NO,                   KC_ENT, KC_BSPC, KC_DEL
+),
+
+[_M_MEDIA] = LAYOUT_pretty(
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
+  _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, _______,
+  _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,   KC_NO,                                                       KC_NO,   KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______,
+  _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
+           _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
+                                                        _______, _______,                   _______, _______,
+                                                                 _______,                   _______,
+                                                 KC_NO,   KC_NO,   KC_NO,                   KC_MSTP, KC_MPLY, KC_MUTE
+),
+
+[_M_NUM] = LAYOUT_pretty(
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
+  _______, KC_LBRC,    KC_7,    KC_8,    KC_9, KC_RBRC,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
+  _______, KC_SCLN,    KC_4,    KC_5,    KC_6,  KC_EQL,                                                       KC_NO,   KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,
+  _______,  KC_GRV,    KC_1,    KC_2,    KC_3, KC_BSLS,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
+           _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
+                                                        _______, _______,                   _______, _______,
+                                                                 _______,                   _______,
+                                                KC_DOT,    KC_0, KC_MINS,                   KC_NO,   KC_NO,   KC_NO
+),
+
+[_M_SYM] = LAYOUT_pretty(
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
+  _______, KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
+  _______, KC_COLN,  KC_DLR, KC_PERC, KC_CIRC, KC_PLUS,                                                       KC_NO,   KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,
+  _______, KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+           _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
+                                                        _______, _______,                   _______, _______,
+                                                                 _______,                   _______,
+                                               KC_LPRN, KC_RPRN, KC_UNDS,                   KC_NO,   KC_NO,   KC_NO
+),
+
+[_M_FUN] = LAYOUT_pretty(
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
+  _______,  KC_F12,   KC_F7,   KC_F8,   KC_F9, KC_PSCR,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
+  _______,  KC_F11,   KC_F4,   KC_F5,   KC_F6, KC_SLCK,                                                       KC_NO,   KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,
+  _______,  KC_F10,   KC_F1,   KC_F2,   KC_F3, KC_PAUS,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
+           _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
+                                                        _______, _______,                   _______, _______,
+                                                                 _______,                   _______,
+                                                  KC_APP, KC_SPC, KC_TAB,                   KC_NO,   KC_NO,   KC_NO
 )
 
 };
