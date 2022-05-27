@@ -7,12 +7,9 @@ enum kinesis_layers {
   _QWERTY,    // QWERTY
   _GAMING,    // Gaming/vanilla toggle layer (limited dual-role keys and layer access)
   _NUMBERS,   // Numbers & Symbols
-  _NUMBERS2,  // Numbers & Symbols 2 (identical as _NUMBERS; basically used for tri-layer access to _ADJUST)
   _FUNCTION,  // Function
-  _FUNCTION2, // Function 2 (identical as _FUNCTION; used to allow for easier use of space and backspace while using function layer arrows)
   _NUMPAD,    // Numpad
-  _ADJUST,    // Adjust layer (accessed via tri-layer feature)
-  _ADJUST2    // Second Adjust layer (accessed outside of tri-layer feature)
+  _ADJUST     // Adjust layer (accessed via tri-layer feature)
 };
 
 enum kinesis_keycodes {
@@ -23,8 +20,7 @@ enum kinesis_keycodes {
 
 //Tap Dance Declarations
 enum {
-  ADJ = 0,
-  LBCB,
+  LBCB = 0,
   RBCB,
   EQPL,
   PLEQ,
@@ -36,21 +32,7 @@ enum {
   PSPA
 };
 
-void dance_LAYER_finished(qk_tap_dance_state_t *state, void *user_data) {
-  if (state->count == 2) {
-     layer_on(_ADJUST2);
-     set_oneshot_layer(_ADJUST2, ONESHOT_START);
-  }
-}
-void dance_LAYER_reset(qk_tap_dance_state_t *state, void *user_data) {
-  if (state->count == 2) {
-     layer_off(_ADJUST2);
-     clear_oneshot_layer_state(ONESHOT_PRESSED);
-  }
-}
-
 qk_tap_dance_action_t tap_dance_actions[] = {
-[ADJ]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_LAYER_finished, dance_LAYER_reset),  //  Double-tap to activate Adjust layer via oneshot layer
 [LBCB] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_LCBR),  // Left bracket on a single-tap, left brace on a double-tap
 [RBCB] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, KC_RCBR),  // Right bracket on a single-tap, right brace on a double-tap
 [EQPL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL, KC_PLUS),   // Plus sign on a single-tap, equal sign on a double-tap
@@ -65,11 +47,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 //Aliases for longer keycodes
 #define NUMPAD  TG(_NUMPAD)
-#define ADJUST  MO(_ADJUST2)
+#define ADJUST  MO(_ADJUST)
 #define SPCFN   LT(_FUNCTION, KC_SPC)
-#define BSPCFN  LT(_FUNCTION2, KC_BSPC)
 #define ENTNS   LT(_NUMBERS, KC_ENT)
-#define DELNS   LT(_NUMBERS2, KC_DEL)
 #define CTLESC  CTL_T(KC_ESC)
 #define ALTAPP  ALT_T(KC_APP)
 #define CTL_A   LCTL(KC_A)
@@ -80,7 +60,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define CTL_Y   LCTL(KC_Y)
 #define CA_TAB  LCA(KC_TAB)
 #define HYPER   ALL_T(KC_NO)
-#define TD_ADJ  TD(ADJ)
 #define TD_LBCB TD(LBCB)
 #define TD_RBCB TD(RBCB)
 #define TD_EQPL TD(EQPL)
@@ -128,7 +107,7 @@ Colemak
            KC_INS,  KC_GRV,  KC_LBRC, KC_RBRC,                                                                         KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
                                                         CTLESC,  HYPER,                     KC_RALT, KC_RCTL,
                                                                  ALTAPP,                    KC_RGUI,
-                                               SPCFN,   ENTNS,   KC_BSPC,                   KC_ENT,  DELNS,   BSPCFN
+                                               SPCFN,   ENTNS,   KC_BSPC,                   KC_ENT,  KC_DEL,  KC_BSPC
 ),
 
 /*
@@ -165,7 +144,7 @@ QWERTY
            KC_INS,  KC_GRV,  KC_LBRC, KC_RBRC,                                                                         KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
                                                         CTLESC,  HYPER,                     KC_RALT, KC_RCTL,
                                                                  ALTAPP,                    KC_RGUI,
-                                               SPCFN,   ENTNS,   KC_BSPC,                   KC_ENT,  DELNS,   BSPCFN
+                                               SPCFN,   ENTNS,   KC_BSPC,                   KC_ENT,  KC_DEL,  KC_BSPC
 ),
 
 /*
@@ -205,18 +184,6 @@ Numbers/Symbols layer
                                                _______, _______, _______,                   _______, _______, _______
 ),
 
-[_NUMBERS2] = LAYOUT_pretty(
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                                         KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                                                          KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
-  _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                                          KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, _______,
-  _______, _______, KC_DOT,  TD_SLAS, TD_MNUN, TD_PLEQ,                                                       TD_GVTL, TD_LBCB, TD_RBCB, _______, _______, _______,
-           KC_LPRN, KC_RPRN, TD_LBCB, TD_RBCB,                                                                         _______, _______, _______, _______,
-                                                        _______, _______,                   _______, _______,
-                                                                 _______,                   _______,
-                                               _______, _______, _______,                   _______, _______, _______
-),
-
 /*
 Function layer
 ,--------------------------------------------------------------.                                     ,--------------------------------------------------------------.
@@ -242,18 +209,6 @@ Function layer
 	                                          `--------------------------'                 `--------------------------'
 */
 [_FUNCTION] = LAYOUT_pretty(
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                                         KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  _______, _______, _______, KC_UP,   _______, _______,                                                       _______, _______, KC_UP,   CTL_Y,   _______, _______,
-  _______, CTL_A,   KC_LEFT, KC_DOWN, KC_RGHT, CA_TAB,                                                        KC_PGUP, KC_LEFT, KC_DOWN, KC_RGHT, KC_HOME, _______,
-  _______, CTL_Z,   CTL_X,   CTL_C,   CTL_V,   KC_BSPC,                                                       KC_PGDN, KC_MUTE, KC_VOLD, KC_VOLU, KC_END,  _______,
-           _______, _______, _______, _______,                                                                         KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP,
-                                                        _______, _______,                   _______, _______,
-                                                                 _______,                   _______,
-                                               _______, _______, _______,                   _______, _______, _______
-),
-
-[_FUNCTION2] = LAYOUT_pretty(
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
   KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                                         KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   _______, _______, _______, KC_UP,   _______, _______,                                                       _______, _______, KC_UP,   CTL_Y,   _______, _______,
@@ -374,25 +329,9 @@ Adjust layer
                                                         _______, _______,                   _______, _______,
                                                                  _______,                   _______,
                                                _______, _______, _______,                   _______, _______, _______
-),
-
-[_ADJUST2] = LAYOUT_pretty(
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, COLEMAK, QWERTY,  _______, GAMING,  _______,                                                       NUMPAD,  _______, _______, _______, _______, RESET,
-  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                                                       _______, NKROTG,  _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
-           _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
-                                                        _______, _______,                   _______, _______,
-                                                                 _______,                   _______,
-                                               _______, _______, _______,                   _______, _______, _______
 )
 
 };
-
-layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _NUMBERS, _NUMBERS2, _ADJUST);
-}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
