@@ -164,7 +164,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                _______, _______, _______,                   _______, _______, _______
 ),
 
-/* Using KC_NO on keys that Miryoku keyboards wouldn't have. */
+/*
+Using KC_NO on keys that Miryoku keyboards wouldn't have.
+
+Default mods:
+          LT(_M_MEDIA, KC_ESC), LT(_M_NAV, KC_SPC), LT(_M_MOUSE, KC_TAB),                   LT(_M_SYM, KC_ENT), LT(_M_NUM, KC_BSPC), LT(_M_FUN, KC_DEL)
+*/
 [_M_BASE_COLEMAK] = LAYOUT_pretty(
     KC_ESC,  L_CMK,   L_QWE,   L_MIR,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8, KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SLCK, RESET,   NUMPAD,  ADJUST,
     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
@@ -174,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                                         KC_NO,   KC_NO,   KC_NO,   KC_NO,
                                                           KC_NO,   KC_NO,                   KC_NO,   KC_NO,
                                                                    KC_NO,                   KC_NO,
-                        LT(_M_MEDIA, KC_ESC), LT(_M_NAV, KC_SPC), KC_TAB,                   LT(_M_SYM, KC_ENT), LT(_M_NUM, KC_BSPC), LT(_M_FUN, KC_DEL)
+         LT(_M_MEDIA, KC_BSPC), LT(_M_NAV, KC_DEL), KC_TAB,                   LT(_M_SYM, KC_ESC), LT(_M_NUM, KC_ENT), LT(_M_FUN, KC_SPC)
 ),
 
 // TODO: Decide on which mod layout I like better
