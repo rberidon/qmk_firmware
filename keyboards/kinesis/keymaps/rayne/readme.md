@@ -170,7 +170,6 @@ Persistent default layer has been enabled for Colemak and QWERTY.  The gaming/va
 - Toggle layer with limited access to Function or Numbers layers
 - Mainly used for gaming
 - NKRO turned on by default
-- Press and hold Ent/NS + Delete/Numbers2 to access Adjust layer
 
 ```
 ,------------------------------------------------. ,------------------------------------------------.
@@ -195,7 +194,7 @@ Persistent default layer has been enabled for Colemak and QWERTY.  The gaming/va
 	
 ### Adjust layer
 - Momentary layer
-- Press and hold Adjust key on the function row or Enter/Number + Delete/Number2 to access
+- Press and hold Adjust key on the function row
 - Gaming, Numpad, and NKRO are on toggle
 
 ```
