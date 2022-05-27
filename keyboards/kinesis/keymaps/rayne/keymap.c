@@ -3,8 +3,8 @@
 extern keymap_config_t keymap_config;
 
 enum kinesis_layers {
-  _COLEMAK,   // Colemak (default layer)
   _QWERTY,    // QWERTY
+  _COLEMAK,   // Colemak (default layer)
   _GAMING,    // Gaming/vanilla toggle layer (limited dual-role keys and layer access)
   _NUMBERS,   // Numbers & Symbols
   _FUNCTION,  // Function
