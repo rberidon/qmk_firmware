@@ -189,7 +189,7 @@ Default mods:
   _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
   _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
   _______, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT,   KC_NO,                                                       KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_CAPS, _______,
-  _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,
+  _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,  _______,
            _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
                                                         _______, _______,                   _______, _______,
                                                                  _______,                   _______,
