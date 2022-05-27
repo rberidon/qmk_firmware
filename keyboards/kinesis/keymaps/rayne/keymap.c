@@ -16,7 +16,10 @@ enum kinesis_layers {
   _M_MEDIA,   // Miryoku Media
   _M_NUM,     // Miryoku Numbers
   _M_SYM,     // Miryoku Symbols
-  _M_FUN      // Miryoku Function
+  _M_FUN,     // Miryoku Function
+
+  _BLANK,     // Rayne: blank/transparent layout template
+  _EMPTY      // Rayne: empty/not transparent layout template
 };
 
 #define L_CMK DF(_COLEMAK)
@@ -256,6 +259,30 @@ Default mods:
                                                         _______, _______,                   _______, _______,
                                                                  _______,                   _______,
                                                   KC_APP, KC_SPC, KC_TAB,                   KC_NO,   KC_NO,   KC_NO
+),
+
+[_BLANK] = LAYOUT_pretty(
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
+           _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
+                                                        _______, _______,                   _______, _______,
+                                                                 _______,                   _______,
+                                               _______, _______, _______,                   _______, _______, _______
+),
+
+[_EMPTY] = LAYOUT_pretty(
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+           KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                                           KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                                                        KC_NO,   KC_NO,                     KC_NO,   KC_NO,
+                                                                 KC_NO,                     KC_NO,
+                                               KC_NO,   KC_NO,   KC_NO,                     KC_NO,   KC_NO,   KC_NO
 )
 
 };
