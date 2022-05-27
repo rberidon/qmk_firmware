@@ -12,11 +12,9 @@ enum kinesis_layers {
   _ADJUST     // Adjust layer (accessed via tri-layer feature)
 };
 
-enum kinesis_keycodes {
-  COLEMAK = SAFE_RANGE,
-  QWERTY,
-  GAMING
-};
+#define L_CMK DF(_COLEMAK)
+#define L_QWE DF(_QWERTY)
+#define L_GAM TG(_GAMING)
 
 //Tap Dance Declarations
 enum {
@@ -148,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_ADJUST] = LAYOUT_pretty(
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, COLEMAK, QWERTY,  _______, GAMING,  _______,                                                       NUMPAD,  _______, _______, _______, _______, RESET,
+  _______, L_CMK,   L_QWE,   _______, L_GAM,   _______,                                                       NUMPAD,  _______, _______, _______, _______, RESET,
   _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                                       _______, NKROTG,  _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
@@ -159,35 +157,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 )
 
 };
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-	case COLEMAK:
-      if (record->event.pressed) {
-//        persistent_default_layer_set(1UL << _COLEMAK);
-        default_layer_set(1UL << _COLEMAK);
-        layer_move (_COLEMAK);
-        keymap_config.nkro = 0;
-	  }
-      return false;
-      break;
-    case QWERTY:
-      if (record->event.pressed) {
-//        persistent_default_layer_set(1UL << _QWERTY);
-        default_layer_set(1UL << _QWERTY);
-        layer_move (_QWERTY);
-        keymap_config.nkro = 0;
-      }
-      return false;
-      break;
-    case GAMING:
-      if (record->event.pressed) {
-        layer_invert (_GAMING);
-        layer_off (_NUMPAD);
-        keymap_config.nkro = 1;
-	  }
-      return false;
-      break;
-  }
-  return true;
-}
