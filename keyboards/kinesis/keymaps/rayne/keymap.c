@@ -11,7 +11,7 @@ enum kinesis_layers {
   _NUMPAD,    // Numpad
   _ADJUST,    // Adjust layer (accessed via tri-layer feature)
 
-  _M_BASE,    // Miryoku Base
+  _M_BASE_COLEMAK,    // Miryoku Base
   _M_NAV,     // Miryoku Nav
   _M_MEDIA,   // Miryoku Media
   _M_NUM,     // Miryoku Numbers
@@ -21,7 +21,7 @@ enum kinesis_layers {
 
 #define L_CMK DF(_COLEMAK)
 #define L_QWE DF(_QWERTY)
-#define L_MIR DF(_M_BASE)
+#define L_MIR DF(_M_BASE_COLEMAK)
 #define L_GAM TG(_GAMING)
 
 //Tap Dance Declarations
@@ -165,7 +165,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 /* Using KC_NO on keys that Miryoku keyboards wouldn't have. */
-[_M_BASE] = LAYOUT_pretty(
+[_M_BASE_COLEMAK] = LAYOUT_pretty(
     KC_ESC,  L_CMK,   L_QWE,   L_MIR,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8, KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SLCK, RESET,   NUMPAD,  ADJUST,
     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
     KC_NO,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                       KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_NO,
