@@ -182,6 +182,20 @@ Default mods:
          LT(_M_MEDIA, KC_BSPC), LT(_M_NAV, KC_DEL), KC_TAB,                   LT(_M_SYM, KC_ESC), LT(_M_NUM, KC_ENT), LT(_M_FUN, KC_SPC)
 ),
 
+/*
+[_M_BASE_QWERTY] = LAYOUT_pretty(
+    KC_ESC,  L_CMK,   L_QWE,   L_MIR,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8, KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SLCK, RESET,   NUMPAD,  ADJUST,
+    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+    KC_NO,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                                       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_NO,
+    KC_NO, LSFT_T(KC_A), LCTL_T(KC_S), LALT_T(KC_D), LGUI_T(KC_F), KC_G,                                      KC_H,    LGUI_T(KC_J),  LALT_T(KC_K), LALT_T(KC_L), LSFT_T(KC_SCLN), KC_NO,
+    KC_NO,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                       KC_N, KC_M, KC_COMM, RALT_T(KC_DOT),KC_SLSH, KC_NO,
+             KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                                         KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                                                          KC_NO,   KC_NO,                   KC_NO,   KC_NO,
+                                                                   KC_NO,                   KC_NO,
+         LT(_M_MEDIA, KC_BSPC), LT(_M_NAV, KC_DEL), LT(_M_MOUSE, KC_TAB),                   LT(_M_SYM, KC_ESC), LT(_M_NUM, KC_ENT), LT(_M_FUN, KC_SPC)
+),
+*/
+
 // TODO: Decide on which mod layout I like better
 // TODO: KC_AGIN, KC_UNDO, KC_CUT, KC_COPY, KC_PSTE,
 [_M_NAV] = LAYOUT_pretty(
