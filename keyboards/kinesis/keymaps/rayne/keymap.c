@@ -194,7 +194,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_M_MEDIA] = LAYOUT_pretty(
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
-  _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, _______,
+  _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   _______,   KC_NO,   _______,
   _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,   KC_NO,                                                       KC_NO,   KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______,
   _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
            _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
