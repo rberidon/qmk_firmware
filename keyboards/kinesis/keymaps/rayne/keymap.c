@@ -200,12 +200,12 @@ Default mods:
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
   _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   _______,   KC_NO,   _______,
-  _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,   KC_NO,                                                       KC_NO,   KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______,
-  _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
+  _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,   KC_NO,                                                       KC_NO,   KC_VOLD, KC_VOLU, KC_MUTE, KC_NO,   _______,
+  _______,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_MNXT, KC_MPRV, KC_MSTP, KC_NO,   _______,
            _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
                                                         _______, _______,                   _______, _______,
                                                                  _______,                   _______,
-                                                 KC_NO,   KC_NO,   KC_NO,                   KC_MSTP, KC_MPLY, KC_MUTE
+                                                 KC_NO,   KC_NO,   KC_NO,                   KC_NO,   KC_MPLY, KC_NO
 ),
 
 [_M_NUM] = LAYOUT_pretty(
