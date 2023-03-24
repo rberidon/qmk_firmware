@@ -38,7 +38,7 @@ enum {
   PSPA
 };
 
-qk_tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[] = {
 [LBCB] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_LCBR),  // Left bracket on a single-tap, left brace on a double-tap
 [RBCB] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, KC_RCBR),  // Right bracket on a single-tap, right brace on a double-tap
 [EQPL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL, KC_PLUS),   // Plus sign on a single-tap, equal sign on a double-tap
@@ -81,11 +81,11 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_COLEMAK] = LAYOUT_pretty(
-  KC_ESC,  L_CMK,   L_QWE,   L_MIR,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SLCK, RESET, NUMPAD,  ADJUST,
+  KC_ESC,  L_CMK,   L_QWE,   L_MIR,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SCRL, QK_REBOOT, NUMPAD,  ADJUST,
   KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                          KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSLS,
   CTLESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                                                          KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
-  KC_LSPO, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                                                          KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
+  SC_LSPO, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                                                          KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, SC_RSPC,
            KC_GRV,  KC_EQL,  KC_LEFT, KC_RGHT,                                                                         KC_DOWN, KC_UP,   KC_LBRC, KC_RBRC,
                                                         KC_LALT, KC_LGUI,                   KC_RGUI, KC_RALT,
                                                                  KC_HOME,                   KC_PGUP,
@@ -93,11 +93,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_QWERTY] = LAYOUT_pretty(
-  KC_ESC,  L_CMK,   L_QWE,   L_MIR,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SLCK, RESET,   NUMPAD,  ADJUST,
+  KC_ESC,  L_CMK,   L_QWE,   L_MIR,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SCRL, QK_REBOOT,   NUMPAD,  ADJUST,
   KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                                          KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   CTLESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                                          KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-  KC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
+  SC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SC_RSPC,
            KC_GRV,  KC_EQL,  KC_LEFT, KC_RGHT,                                                                         KC_DOWN, KC_UP,   KC_LBRC, KC_RBRC,
                                                         KC_LALT, KC_LGUI,                   KC_RGUI, KC_RALT,
                                                                  KC_HOME,                   KC_PGUP,
@@ -130,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_NUMPAD] = LAYOUT_pretty(
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, KC_NLCK, _______, _______, _______, _______,                                                       KC_TAB,  KC_NLCK, KC_PSLS, KC_PAST, KC_PMNS, _______,
+  _______, KC_NUM,  _______, _______, _______, _______,                                                       KC_TAB,  KC_NUM,  KC_PSLS, KC_PAST, KC_PMNS, _______,
   _______, KC_P6,   KC_P7,   KC_P8,   KC_P9,   KC_P0,                                                         _______, KC_P7,   KC_P8,   KC_P9,   KC_PPLS, _______,
   _______, KC_P1,   KC_P2,   KC_P3,   KC_P4,   KC_P5,                                                         _______, KC_P4,   KC_P5,   KC_P6,   KC_EQL,  _______,
   _______, _______, KC_PDOT, TD_PSPA, TD_MNUN, TD_PPEQ,                                                       _______, KC_P1,   KC_P2,   KC_P3,   KC_PENT, _______,
@@ -154,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_ADJUST] = LAYOUT_pretty(
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, L_CMK,   L_QWE,   _______, L_GAM,   _______,                                                       NUMPAD,  _______, _______, _______, _______, RESET,
+  _______, L_CMK,   L_QWE,   _______, L_GAM,   _______,                                                       NUMPAD,  _______, _______, _______, _______, QK_REBOOT,
   _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
   _______, DT_PRNT, DT_DOWN,   DT_UP, _______, _______,                                                       _______, NKROTG,  _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
@@ -171,7 +171,7 @@ Default mods:
           LT(_M_MEDIA, KC_ESC), LT(_M_NAV, KC_SPC), LT(_M_MOUSE, KC_TAB),                   LT(_M_SYM, KC_ENT), LT(_M_NUM, KC_BSPC), LT(_M_FUN, KC_DEL)
 */
 [_M_BASE_COLEMAK] = LAYOUT_pretty(
-    KC_ESC,  L_CMK,   L_QWE,   L_MIR,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8, KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SLCK, RESET,   NUMPAD,  ADJUST,
+    KC_ESC,  L_CMK,   L_QWE,   L_MIR,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8, KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SCRL, QK_REBOOT,   NUMPAD,  ADJUST,
     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
     KC_NO,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                       KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_NO,
     KC_NO, LCTL_T(KC_A), LALT_T(KC_R), LGUI_T(KC_S), LSFT_T(KC_T), KC_G,                     KC_M, RSFT_T(KC_N), RGUI_T(KC_E), RALT_T(KC_I), RCTL_T(KC_O), KC_NO,
@@ -234,7 +234,7 @@ Default mods:
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______, _______,
   _______,  KC_F12,   KC_F7,   KC_F8,   KC_F9, KC_PSCR,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
-  _______,  KC_F11,   KC_F4,   KC_F5,   KC_F6, KC_SLCK,                                                       KC_NO,   KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL, _______,
+  _______,  KC_F11,   KC_F4,   KC_F5,   KC_F6, KC_SCRL,                                                       KC_NO,   KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL, _______,
   _______,  KC_F10,   KC_F1,   KC_F2,   KC_F3, KC_PAUS,                                                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   _______,
            _______, _______, _______, _______,                                                                         _______, _______, _______, _______,
                                                         _______, _______,                   _______, _______,
