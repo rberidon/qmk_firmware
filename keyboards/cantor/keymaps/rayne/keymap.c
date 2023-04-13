@@ -30,11 +30,15 @@ tap_dance_action_t tap_dance_actions[] = {
  *                                              └────────┘    └────────┘
  */
 
+/*
+
+*/
+
 #define R_LCTL  MT(MOD_LCTL, KC_ESC)
 
 #define R_LBSPC MT(MOD_LALT, KC_BSPC)
 #define R_LDEL  MT(MOD_LGUI, KC_DEL)
-#define R_L3    LT(1, KC_ESC)
+#define R_L3    LT(1, KC_NO)
 
 #define R_RENT  MT(MOD_LALT, KC_ENT)
 #define R_RSPC  MT(MOD_LALT, KC_SPC)
@@ -70,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       * │Sft│ +=│ -_│ + │ { │ } │       │ [ │ ] │ ; │ : │ \ │   │
       * └───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┘
       *           ┌────────┐                       ┌─────┐
-      *           │ MLCKSCN├─────┐           ┌─────┤TO(3)│
+      *           │        ├─────┐           ┌─────┤TO(3)│
       *           └────────┤TO(0)├───┐   ┌───┤TO(2)├─────┘
       *                    └─────┤ < │   │ > ├─────┘
       *                          └───┘   └───┘
